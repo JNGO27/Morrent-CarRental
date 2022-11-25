@@ -49,10 +49,12 @@ export default function CarFavouriteContextProvider({
   const gId = parseInt(googleId)
   console.log(userFavourite,":userFavourite")
   useEffect(() => {
+    //googleId will be null if user is in a logged out state
     if (googleId) {
       console.log("logged-in")
       let lS: lSType = JSON.parse(localStorage.getItem(`${gId}`) as string)
       console.log(lS)
+      // here the lS (local storage value) is undefined for the first time user logs in
       if (lS) {
         setUserFavourite(lS)
       } else {

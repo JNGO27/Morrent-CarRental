@@ -8,7 +8,6 @@ import { CarDetailsWrapper, Container, MainContent } from './styles';
 const CarDetails: FC = () => {
     return (
         <CarDetailsWrapper>
-            <Header />
             <SearchBar showSearchBar={true} showFilter={true} />
             <Container>
                 <AsideLeft />

@@ -17,34 +17,54 @@ import {
   RentNowButton,
 } from "./styles"
 
-import { CarsContext } from "../../contexts/CarContext"
+import { CarsContext } from "../../contexts/CarsContext"
+import { UserContextObj } from "../../contexts/UserContext"
 
-import carImg from "/src/assets/cars/car.png"
-import { FavoriteRed, GasIcon, Users, Wheel } from "../../assets/icon"
+import { FavoriteRed, GasIcon, Users, Wheel, Favorite } from "../../assets/icon"
 import { Link } from "react-router-dom"
+import { CarType } from "../../contexts/CarsContext"
+import { CarFavouriteContext } from "../../contexts/CarFavouriteContext"
 
+type CurrentValueType = {
+  carId: number
+  value: boolean
+  gId: number
+}[]
 type CarCardType = {
-  car: {}
+  car: CarType
 }
-const CarCard = ({ car }: CarCardType) => {
-  const [isFavourite, setIsFavourite] = useState<boolean>(false)
-  const context = useContext(CarsContext)
-  const { addToFavourite } = context
 
-  useEffect(() => { })
+const CarCard = ({ car }: CarCardType) => {
+  const [toggle, setToggle] = useState<boolean>(false)
+  const context = useContext(CarsContext)
+  const carFavouriteContext = useContext(CarFavouriteContext)
+  const { addToFavourite } = context
+  const { handleFavourite, userFavourite } = carFavouriteContext
+  const [userId, setUserId] = useState(0)
+  const [userValue, setUserValue] = useState(false)
+
+  useEffect(() => {
+    console.log("immediate")
+    let cV: CurrentValueType = userFavourite.filter(
+      (item) => item.carId == car._id
+    )
+    console.log(cV[0], ":currentValue")
+    setUserId(cV[0]?.gId)
+    setUserValue(cV[0]?.value)
+  }, [userFavourite, toggle])
 
   const features = [
     {
       icon: <Icon src={GasIcon} />,
-      title: "90L"
+      title: `${car.maximum_gasoline}L`,
     },
     {
       icon: <Icon src={Wheel} />,
-      type: "Manual"
+      type: "Manual",
     },
     {
       icon: <Icon src={Users} />,
-      qty: "2 People"
+      qty: `${car.seat_capacity} People`,
     },
   ]
   return (
@@ -52,33 +72,42 @@ const CarCard = ({ car }: CarCardType) => {
       <Article>
         <CardRow1>
           <CardTitle>
-            Koenigsegg <CardTag>Sport</CardTag>
+            {car.car_title} <CardTag>{car.car_body_type}</CardTag>
           </CardTitle>
-          <Icon src={FavoriteRed} />
+          <Icon
+            src={userId ? (userValue ? FavoriteRed : Favorite) : Favorite}
+            onClick={() => {
+              handleFavourite(car._id)
+              setToggle(!toggle)
+              addToFavourite(car._id)
+            }}
+          />
         </CardRow1>
         <CardRow2>
-          <img src={carImg} />
+          <img src={car.file_path} />
         </CardRow2>
         <CardRow3>
-          {
-            features.map((feature) => (
-              <CardSpesificationDiv key={feature.type}>
-                {feature.icon} <CardSpesification>{feature.title}</CardSpesification>
-                <CardSpesification>{feature.type}</CardSpesification>
-                <CardSpesification>{feature.qty}</CardSpesification>
-              </CardSpesificationDiv>
-            ))
-          }
+          {features.map((feature) => (
+            <CardSpesificationDiv key={feature.type}>
+              {feature.icon}{" "}
+              <CardSpesification>{feature.title}</CardSpesification>
+              <CardSpesification>{feature.type}</CardSpesification>
+              <CardSpesification>{feature.qty}</CardSpesification>
+            </CardSpesificationDiv>
+          ))}
         </CardRow3>
         <CardRow4>
           <div>
             <PricePerDay>
-              $99.00/<PricePerDaySmall>day</PricePerDaySmall>
+              ${car.daily_rate}/<PricePerDaySmall>day</PricePerDaySmall>
             </PricePerDay>
-            <PricePerDaySmall>$100.00</PricePerDaySmall>
+            <PricePerDaySmall>${car.daily_rate}</PricePerDaySmall>
           </div>
           <RentNowButton>
-            <Link to="/car-details" style={{ textDecoration: "none", color: "white" }}>
+            <Link
+              to="/car-details"
+              style={{ textDecoration: "none", color: "white" }}
+            >
               Rent Now
             </Link>
           </RentNowButton>

@@ -1,4 +1,4 @@
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -9,10 +9,12 @@ const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@carrental.n
 const SERVER_PORT = process.env.SERVER_PORT ? Number(process.env.SERVER_PORT) : 1337;
 
 export const config = {
- mongo: {
-  url: MONGO_URL
- },
- server: {
-  port: SERVER_PORT
- }
-}
+	mongo: {
+		url: MONGO_URL
+	},
+	server: {
+		port: SERVER_PORT
+	}
+};
+
+export default config;

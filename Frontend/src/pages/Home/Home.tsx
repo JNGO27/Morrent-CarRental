@@ -7,7 +7,6 @@ import { HomeWrapper, MoreBtn, MoreDiv } from './styles';
 const Home: FC = () => {
   return (
     <HomeWrapper>
-      <Header />
       <FeaturedCards />
       <PickUpDropOff />
       <PopularCar />
@@ -20,4 +19,4 @@ const Home: FC = () => {
   )
 }
 
-export default Home;
+export default Home

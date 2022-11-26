@@ -1,40 +1,58 @@
-import React, { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import React, { useContext, useEffect, useState } from "react"
 
-// type QType={
-//     q:string
-// }
+import { CarsList, Filter } from "../../components"
+import { CarsContext, CarType } from "../../contexts/CarsContext"
+import { SearchWrapper } from "./styles"
 
 export default function SearchFilter() {
-  const [query, setQuery] = useState("")
-  const [search, setSearch] = useState([]) // this will be used to populate jsx
-  const navigate = useNavigate()
-  const { q } = useParams()
+  const context = useContext(CarsContext)
+  const { cars, searchItems, query, addToSearch, filterPrice, filterType } =
+    context
+  const [results, setResults] = useState<CarType[]>([] as CarType[])
+
+  console.log(filterPrice)
 
   useEffect(() => {
-    if (q) setQuery(q)
-    navigate(`/search/${query}`)
-    const Searchcars = async (): Promise<void> => {
-      try {
-        const response = await fetch(`http://localhost:4000/get?q=${query}`)
-        const data = await response.json()
-        if (response.ok) {
-          setSearch(data) // we are getting the full search results based in query
-        }
-      } catch (error) {
-        console.log(error) // Here we receive the error from the backend and can setan error /modal to show the error to user
+    setResults(cars)
+    console.log(results, "results")
+    console.log(cars, "cars")
+  }, [cars])
+
+  useEffect(() => {
+    const searchCarList = cars.filter(
+      (car) =>
+        car.car_brand.toLowerCase().includes(query) ||
+        car.car_title.toLowerCase().includes(query)
+    )
+    addToSearch(searchCarList)
+    setResults(searchCarList)
+
+    if (filterType.length != 0 || filterPrice != 0) {
+      let filteredCars = searchItems.filter(
+        (car) =>
+          filterType.some(
+            (filter) =>
+              filter.includes(car.car_body_type) ||
+              parseInt(filter) <= car.seat_capacity
+          ) && car.daily_rate > filterPrice
+      )
+      if (filterType.length == 0) {
+        filteredCars = searchItems.filter((car) => car.daily_rate > filterPrice)
       }
+      console.log(filteredCars, ":filterecars")
+      setResults(filteredCars)
+    } else {
+      setResults(searchCarList)
     }
-    Searchcars()
-  }, [query, q])
+  }, [query, filterPrice, filterType])
 
-
-
-  console.log(search)
   return (
-    <div>
-      {/* <SearchBar/>
-      <Filter/> */}
-    </div> ///  design a searchbar and filter
+    <>
+      {query && <h3>You are searching for - {`"${query}"`}</h3>}
+      <SearchWrapper>
+        <Filter />
+        <CarsList searchItems={results} />
+      </SearchWrapper>
+    </>
   )
 }

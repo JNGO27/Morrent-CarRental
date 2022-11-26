@@ -4,29 +4,24 @@ import http from 'http';
 import mongoose from 'mongoose';
 import passport from 'passport';
 import MongoStore from 'connect-mongo';
-import bodyparser from 'body-parser';
 import cors from 'cors';
 
-import { config } from './config/config';
-import passportSetup from './config/passport';
 import Logging from './Library/Logging';
-import carRoutes from './routes/Car';
-import userRoutes from './routes/User';
-import authRoutes from './routes/Auth';
-import stripeRoutes from './routes/Stripe';
+import { config, passportSetup } from './config/index';
+import { authRoutes, carRoutes, stripeRoutes, userRoutes } from './routes/index';
 
 const routerServer: Application = express();
 const CLIENT_LINK = 'http://localhost:5173';
 
-routerServer.use(bodyparser.json());
-routerServer.use(bodyparser.urlencoded({ extended: true }));
+routerServer.use(express.json());
+routerServer.use(express.urlencoded({ extended: true }));
 
 routerServer.use(
 	session({
 		secret: 'black cat',
 		resave: false,
 		saveUninitialized: false,
-		cookie: { maxAge: 1000 },
+		cookie: { maxAge: 3600000 },
 		store: MongoStore.create({ mongoUrl: config.mongo.url })
 	})
 );
@@ -64,6 +59,7 @@ const StartServer = () => {
 
 	routerServer.use(express.urlencoded({ extended: true }));
 	routerServer.use(express.json());
+  routerServer.use(cors());
 
 	/** Rules of our API */
 	routerServer.use((req: Request, res: Response, next: NextFunction) => {

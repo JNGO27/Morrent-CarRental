@@ -203,27 +203,6 @@ export const PricePerDaySmall = styled.span`
   }
 `;
 
-export const RentNowButton = styled.span`
-  padding: 0px 20px;
-  background: #3563E9;
-  border-radius: 4px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #FFFFFF;
-  cursor: pointer;
-  @media (min-width: 640px) {
-  }
-  @media (min-width: 768px) {
-  }
-  @media (min-width: 1024px) {
-  }
-`;
-
 export const Icon = styled.img`
   width: 24px;
   height: 24px;
@@ -234,6 +213,42 @@ export const Icon = styled.img`
   @media (min-width: 1024px) {
   }
 `;
+
+export const RentNowButton = styled.button`
+  width: 120px;
+  height: 44px;
+  border: none;
+  border-radius: 4px;
+  
+  font-weight: var(--font-semi-bold);
+
+  color: var(--color-white);
+  background-color: var(--color-blue-primary);
+  
+  cursor: pointer;
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // export const CarCardWrapper = styled.div`
 //   justify-self: center;

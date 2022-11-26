@@ -8,8 +8,8 @@ stripeRouter.post('/session', createStripeSession);
 
 
 /* Temporary Test sucesss & cancel routes */
-stripeRouter.get('/sucess', (req, res) => {
-  res.send('sucess');
+stripeRouter.get('/success', (req, res) => {
+  res.send('success');
 })
 
 stripeRouter.get('/canceled', (req, res) => {

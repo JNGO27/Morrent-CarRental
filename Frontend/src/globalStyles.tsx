@@ -9,6 +9,9 @@ export const GlobalStyles = createGlobalStyle`
     --color-blue-primary: hsl(225deg 80% 56%);
     --color-blue-secondary: hsl(209deg 96% 67%);
 
+    --color-confirm: hsl(81deg 76% 40%);
+    --color-cancel: hsl(4deg 80% 48%);
+
     /*TYPOGRAPHY*/
     --app-font-family: 'Plus Jakarta Sans', sans-serif;
     --font-weight-bold: 700;

@@ -1,14 +1,14 @@
 import { FC } from "react";
 
 import { PickUpDropContainer, PickUpDropOffWrapper } from "./styles";
-import { PickUp, UpDownButton, DropOff } from '..';
+import { PickUp, LocationSwitcher, DropOff } from '../';
 
 const PickUpDropOff: FC = () => {
   return (
     <PickUpDropOffWrapper>
       <PickUpDropContainer>
         <PickUp />
-        <UpDownButton />
+        <LocationSwitcher />
         <DropOff />
       </PickUpDropContainer>
     </PickUpDropOffWrapper>

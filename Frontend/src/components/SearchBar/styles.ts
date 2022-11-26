@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const SearchIconElement = styled.img` 
-  width:24px; height:24px;
+  width: 24px; 
+  height:24px;
   position: absolute;
   left: 1rem;
   bottom: 12px;

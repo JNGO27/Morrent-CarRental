@@ -7,7 +7,6 @@ import { AddCarWrapper, FormSection } from './styles';
 const AddCar: FC = () => {
     return (
         <AddCarWrapper>
-            <Header />
             <FormSection>
                 <AddCarForm />
                 <Confirmation />

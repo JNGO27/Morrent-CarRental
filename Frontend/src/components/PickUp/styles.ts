@@ -86,10 +86,11 @@ export const PickUpLabel = styled.label`
   font-size: 1rem;
   font-weight: var(--font-weight-semi-bold);
 `;
+
 export const PickUpTitle = styled.div`
   font-style: normal;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 1rem;
   line-height: 120%;
   display: flex;
   align-items: center;
@@ -112,7 +113,7 @@ export const SelectCity = styled.div`
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 200%;
   }
 `;

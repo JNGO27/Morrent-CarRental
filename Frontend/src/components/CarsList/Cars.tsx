@@ -1,18 +1,9 @@
-import { FC, useContext } from "react";
+import { FC, useContext } from "react"
 
-import { CarsListWrapper, CarsListItems } from "./styles";
+import { CarsListWrapper, CarsListItems } from "./styles"
 
-import { CarCard } from '..';
-import { CarsContext } from "../../contexts/CarContext"
-
-
-
-// const carsdummy = [
-//   {
-//     title: "Car title",
-//     img: carImg,
-//   },
-// ]
+import { CarCard } from ".."
+import { CarsContext } from "../../contexts/CarsContext"
 
 const Cars: FC = () => {
   const context = useContext(CarsContext)
@@ -21,17 +12,12 @@ const Cars: FC = () => {
   return (
     <CarsListWrapper>
       <CarsListItems>
-        {/* dummy content */}
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((car) => (
+        {cars.map((car) => (
           <CarCard car={car} />
         ))}
-
-        {/* {cars.map((car) => (
-          <CarCard car={car} />
-        ))} */}
       </CarsListItems>
     </CarsListWrapper>
   )
 }
 
-export default Cars;
+export default Cars

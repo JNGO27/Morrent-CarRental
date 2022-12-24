@@ -52,13 +52,48 @@ Make sure you have all the necessary prerequisites installed on your system. Fol
   ```
 - This will create a new directory called "Morrent-CarRental" in the current location, containing the code for the Car Rent project.
 - Navigate to the project directory by running the following command:
+
   ```bash
-  cd Web3_CarRent
+  cd Morrent-CarRental
   ```
+
+  -Navigate to Frontend
+
+  ```bash
+    cd Frontend
+  ```
+
 - Run the following command to install the project's dependencies using npm:
+
   ```bash
   npm install
   ```
+
+- Start the server on the Frontend
+
+  ```bash
+  npm run dev
+  ```
+
+  -Navigate to Backend
+
+  ```bash
+    cd Backend
+    cd src
+  ```
+
+- Run the following command to install the project's dependencies using npm:
+
+  ```bash
+  npm install
+  ```
+
+- Start the server on the Backend
+
+  ```bash
+  nodemon server.ts
+  ```
+
 - To use the CarRent project, you will need to set up some environment variables on your development machine. Here are the steps to follow:
 
   1. Create a **`.env`** file in the root of the project.

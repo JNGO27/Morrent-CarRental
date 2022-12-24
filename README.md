@@ -8,7 +8,7 @@ CarRent features a user-friendly interface and secure payment processing, making
 
 ### Application in Action
 
-Visit the application live demo.
+in progress...
 
 ### Built With
 

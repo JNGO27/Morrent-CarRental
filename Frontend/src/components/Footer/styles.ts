@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const FooterWrapper = styled.footer`
   height: auto;
   width: 100%;
-
+  padding: 1.1rem;
   background-color: var(--color-white);
   @media (min-width: 768px) {
-  height: 44%;
+    height: 44%;
+    padding: 0rem;
   }
 `;
 
@@ -48,7 +49,7 @@ export const FooterLogoDiv = styled.div`
     width: 100%;
   }
   @media (min-width: 768px) {
-  width: 50%;
+    width: 50%;
   }
 `;
 
@@ -57,13 +58,13 @@ export const FooterLinkItems = styled.div`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   @media (min-width: 640px) {
-  justify-items: flex-start;
+    justify-items: flex-start;
     width: 100%;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   @media (min-width: 768px) {
-  justify-items: flex-end;
-  width: 50%;
+    justify-items: flex-end;
+    width: 50%;
   }
   @media (min-width: 1024px) {
     grid-column: span 2 / span 2;
@@ -105,7 +106,7 @@ export const FooterTitle = styled.p`
   font-weight: 500;
   font-size: 16px;
   @media (min-width: 768px) {
-  font-size: 20px;
+    font-size: 20px;
   }
 `;
 
@@ -125,7 +126,7 @@ export const FooterNav = styled.nav`
   @media (min-width: 640px) {
   }
   @media (min-width: 1024px) {
-  font-size: 14px;
+    font-size: 14px;
   }
 `;
 
@@ -157,10 +158,10 @@ export const hr = styled.hr`
 
 export const FooterBottom = styled.div`
   display: flex;
-    flex-direction:column;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
   color: #131313;
   font-weight: 600;
   font-size: 14px;
@@ -169,7 +170,7 @@ export const FooterBottom = styled.div`
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
-    flex-direction:row;
+    flex-direction: row;
     align-items: middle;
     justify-content: space-between;
   }
@@ -184,5 +185,14 @@ export const FooterBottomLinkDiv = styled.div`
   @media (min-width: 640px) {
   }
   @media (min-width: 1024px) {
+  }
+`;
+
+export const AppLogo = styled.img`
+  cursor: pointer;
+  height: 30px;
+
+  @media (${({ theme }) => theme.queries.smallMediumAndDown}) {
+    height: 19px;
   }
 `;

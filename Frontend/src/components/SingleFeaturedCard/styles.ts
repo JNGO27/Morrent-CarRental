@@ -1,6 +1,46 @@
 import styled from 'styled-components';
 
+import { PickupBG,DropoffBG } from '../../assets/background';
+
 export const FeaturedWrapper = styled.div`
+  background-image: url(${PickupBG});
+  background-size: cover;
+  height: clamp(232px, 400px, 500px);
+  width: 100%;
+  min-width: 327px;
+  border-radius: var(--border-radius-general);
+
+  position: relative;
+  z-index: 10;
+
+  justify-self: center;
+  overflow: hidden;
+
+  :nth-of-type(1) {
+    background-color: var(--color-blue-secondary);
+
+    @media (${({ theme }) => theme.queries.smallAndDown}) {
+     height: clamp(250px, 350px, 400px);
+   }
+
+    @media (${({ theme }) => theme.queries.verySmallAndDown}) {
+     height: 300px;
+   }
+  }
+  
+  :nth-of-type(2) {
+    background-color: var(--color-blue-primary);
+
+   @media (${({ theme }) => theme.queries.smallMediumAndDown}) {
+     display: none;
+   }
+  }
+`;
+
+
+export const FeaturedWrapper2 = styled.div`
+  background-image: url(${DropoffBG});
+  background-size: cover;
   height: clamp(232px, 400px, 500px);
   width: 100%;
   min-width: 327px;
@@ -155,4 +195,49 @@ export const FeaturedContentImage = styled.div`
 
 export const FeaturedImage = styled.img`
   width: 100%
+`;
+
+export const RentNowButton = styled.span`
+  width: fit-content;
+  padding: 15px 30px;
+  background: #3563E9;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+  @media (min-width: 640px) {
+  }
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1024px) {
+  }
+`;
+
+
+export const RentNowButton2 = styled.span`
+  width: fit-content;
+  padding: 15px 30px;
+  background: #5CAFFC;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+  @media (min-width: 640px) {
+  }
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1024px) {
+  }
 `;

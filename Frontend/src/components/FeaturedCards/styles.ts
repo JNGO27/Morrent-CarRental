@@ -14,8 +14,12 @@ export const FeaturedHorizontal = styled.section`
 `;
 
 export const FeaturedCardsWrapper = styled.div`
-  --sides-padding: calc(var(--spacing-horizontal) - var(--border-radius-general));
-  --small-sides-padding: calc(var(--small-spacing-horizontal) - var(--border-radius-general));
+  --sides-padding: calc(
+    var(--spacing-horizontal) - var(--border-radius-general)
+  );
+  --small-sides-padding: calc(
+    var(--small-spacing-horizontal) - var(--border-radius-general)
+  );
 
   display: grid;
   position: relative;
@@ -30,7 +34,19 @@ export const FeaturedCardsWrapper = styled.div`
     grid-template-columns: 1fr;
 
     padding: var(--small-spacing-veritical) var(--small-sides-padding);
-   }
+  }
+`;
+
+
+
+export const SearchIconElement = styled.img` 
+  width:24px; height:24px;
+  position: absolute;
+  left: 1rem;
+  bottom: 12px;
+  @media (${({ theme }) => theme.queries.smallMediumAndDown}) {
+
+  }
 `;
 
 export const SearchSettings = styled.div`
@@ -43,6 +59,7 @@ export const SearchSettings = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin-top: 1rem;
   }
 `;
 
@@ -51,7 +68,6 @@ export const SearchSettingsContainer = styled.div`
   display: flex;
   flex: 0.25;
 `;
-
 
 export const Input = styled.input`
   width: 100%;

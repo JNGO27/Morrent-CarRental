@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const PopularCarSection = styled.div`
   display: flex;
   flex-direction: column;
-  margin:1rem;
+  margin: 1rem;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
-  margin:2rem;
+    margin: 0 40px;
   }
   @media (min-width: 1024px) {
   }
@@ -22,8 +22,22 @@ export const PopularCarDiv = styled.div`
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
-    padding-left: 2.9rem;
-    padding-right: 2.9rem;
+    padding: 3rem 20px 20px;
+  }
+  @media (min-width: 1024px) {
+  }
+`;
+
+export const RecommendedCarDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+  @media (min-width: 640px) {
+  }
+  @media (min-width: 768px) {
+    padding: 2rem 3.5rem 0px;
   }
   @media (min-width: 1024px) {
   }
@@ -33,9 +47,10 @@ export const PopularCarHorizontal = styled.section`
   display: flex;
   flex-direction: row;
   position: relative;
-  max-width:1536px;
+  max-width: 1416px;
+  /* max-width:1536px; */
   overflow-x: auto;
-  /* -webkit-overflow-scrolling: touch; */
+  -webkit-overflow-scrolling: touch;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -56,18 +71,18 @@ export const PopularCarCardsWrapper = styled.div`
 `;
 
 export const PopularCarTitle = styled.div`
-font-family: 'Plus Jakarta Sans';
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 18px;
-display: flex;
-align-items: center;
-color: #90A3BF;
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  color: #90a3bf;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
-  font-size: 16px;
+    font-size: 16px;
   }
   @media (min-width: 1024px) {
   }
@@ -81,11 +96,11 @@ export const PopularCarViewAll = styled.div`
   display: flex;
   align-items: center;
   text-align: right;
-  color: #3563E9;
+  color: #3563e9;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
-  font-size: 14px;
+    font-size: 14px;
   }
   @media (min-width: 1024px) {
   }
@@ -109,48 +124,21 @@ export const CarsListWrapper = styled.section`
 `;
 
 export const CarsListItems = styled.div`
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   margin-left: -0.25rem;
   margin-right: -0.25rem;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
-    padding-left: .5rem;
-    padding-right: .5rem;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   @media (min-width: 1024px) {
     /* margin-left: -1rem;
     margin-right: -1rem; */
   }
 `;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // export const CarsListWrapper = styled.section`
 //   display: grid;

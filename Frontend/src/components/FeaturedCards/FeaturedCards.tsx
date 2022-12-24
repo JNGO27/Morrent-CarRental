@@ -1,20 +1,14 @@
 import { FC } from "react";
 
-import { FeaturedCardsWrapper, FeaturedHorizontal, Input, SearchSettings, SearchSettingsContainer } from "./styles";
-import { SingleFeaturedCard, SingleFeaturedCard2 } from '../';
-import SearchIcon from "../../assets/icons/SearchIcon";
-import Filter from "../../assets/icons/Filter";
+import { FeaturedCardsWrapper, FeaturedHorizontal, Input, SearchIconElement, SearchSettings, SearchSettingsContainer } from "./styles";
+
+import { SingleFeaturedCard, SingleFeaturedCard2 } from '..';
+import SearchBar from "../SearchBar/SearchBar";
 
 const FeaturedCards: FC = () => {
   return (
     <>
-      <SearchSettings>
-        <SearchSettingsContainer>
-          <SearchIcon />
-          <Input type="text" placeholder="Search something here" />
-        </SearchSettingsContainer>
-        <Filter />
-      </SearchSettings>
+      <SearchBar showSearchBar={true} showFilter={true} />
       <FeaturedHorizontal>
         <FeaturedCardsWrapper>
           <SingleFeaturedCard />

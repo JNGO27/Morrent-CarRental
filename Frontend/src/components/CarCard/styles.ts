@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CarCardWrapper = styled.div`
-  margin-top: 0.25rem;
+  margin-top: 1.25rem;
   margin-bottom: 0.25rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
@@ -10,12 +10,12 @@ export const CarCardWrapper = styled.div`
   }
   @media (min-width: 768px) {
     width: 50%;
-  }
-  @media (min-width: 1024px) {
     margin-top: 1rem;
     margin-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  @media (min-width: 1024px) {
     width: 33.333333%;
   }
   @media (min-width: 1280px) {
@@ -30,11 +30,13 @@ export const Article = styled.article`
   justify-content: space-between;
   overflow: hidden;
   border-radius: 0.5rem;
-  background-color:#FFFFFF;
+  background-color: #ffffff;
   height: 400px;
   padding: 20px;
-  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
@@ -71,9 +73,13 @@ export const CardRow3 = styled.div`
   height: 10%;
   display: flex;
   flex-direction: row;
-    justify-content: space-between;
+  justify-content: space-between;
   padding: 0px;
   gap: 16px;
+  transform: scale(.95);
+  width: 105%;
+  left: -3%;
+  position: relative;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
@@ -94,14 +100,13 @@ export const CardRow4 = styled.div`
   }
 `;
 
-
 export const CardTitle = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 25px;
   align-items: center;
-  color: #1A202C;
+  color: #1a202c;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
@@ -117,7 +122,7 @@ export const CardTag = styled.span`
   font-size: 14px;
   line-height: 16px;
   align-items: center;
-  color: #90A3BF;
+  color: #90a3bf;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
@@ -132,7 +137,7 @@ export const CardSpesificationDiv = styled.span`
   align-items: center;
   justify-content: center;
   padding: 0px;
-  gap: 6px;
+  gap: 2px;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
@@ -148,7 +153,7 @@ export const CardSpesification = styled.span`
   line-height: 18px;
   display: flex;
   align-items: center;
-  color: #90A3BF;
+  color: #90a3bf;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
@@ -173,7 +178,7 @@ export const PricePerDay = styled.span`
   line-height: 25px;
   display: flex;
   align-items: center;
-  color: #1A202C;
+  color: #1a202c;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
@@ -189,7 +194,7 @@ export const PricePerDaySmall = styled.span`
   line-height: 16px;
   display: flex;
   align-items: center;
-  color: #90A3BF;
+  color: #90a3bf;
   @media (min-width: 640px) {
   }
   @media (min-width: 768px) {
@@ -198,7 +203,30 @@ export const PricePerDaySmall = styled.span`
   }
 `;
 
+export const Icon = styled.img`
+  width: 24px;
+  height: 24px;
+  @media (min-width: 640px) {
+  }
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 1024px) {
+  }
+`;
 
+export const RentNowButton = styled.button`
+  width: 120px;
+  height: 44px;
+  border: none;
+  border-radius: 4px;
+  
+  font-weight: var(--font-semi-bold);
+
+  color: var(--color-white);
+  background-color: var(--color-blue-primary);
+  
+  cursor: pointer;
+`;
 
 
 

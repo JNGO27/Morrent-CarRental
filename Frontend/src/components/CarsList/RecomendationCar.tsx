@@ -1,18 +1,26 @@
-import React from 'react'
-import CarCard from '../CarCard/CarCard'
-import CarsList from './CarsList'
-import { PopularCarDiv, PopularCarHorizontal, PopularCarTitle, PopularCarViewAll } from './styles'
+import React, { useContext } from "react"
+
+import { PopularCarTitle, PopularCarViewAll, RecommendedCarDiv } from "./styles"
+
+import CarsList from "./Cars"
+import { CarsContext } from "../../contexts/CarsContext"
+import CarCard from "../CarCard/CarCard"
 
 const RecomendationCar = () => {
-    return (
-        <div style={{ display: 'flex', flexDirection: "column" }}>
-            <PopularCarDiv>
-                <PopularCarTitle>Recomendation Car</PopularCarTitle>
-                <PopularCarViewAll>View All</PopularCarViewAll>
-            </PopularCarDiv>
-            <CarsList />
-        </div>
-    )
+    const context = useContext(CarsContext)
+
+    const { cars } = context
+  return (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <RecommendedCarDiv>
+        <PopularCarTitle>Recomendation Car</PopularCarTitle>
+        <PopularCarViewAll>View All</PopularCarViewAll>
+        {cars.map((car) => (
+          <CarCard car={car} />
+        ))}
+      </RecommendedCarDiv>
+    </div>
+  )
 }
 
 export default RecomendationCar
